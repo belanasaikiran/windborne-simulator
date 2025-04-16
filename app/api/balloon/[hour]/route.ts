@@ -1,9 +1,13 @@
+import { NextRequest } from "next/server";
+
 export async function GET(
-  _: Request,
-  { params }: { params: { hour: string } },
+  req: NextRequest,
+  context: { params: Promise<{ hour: string }> },
 ) {
-  const hour = params.hour.padStart(2, "0");
-  const url = `https://a.windbornesystems.com/treasure/${hour}.json`;
+  const { hour } = await context.params;
+  const paddedHour = hour.padStart(2, "0");
+
+  const url = `https://a.windbornesystems.com/treasure/${paddedHour}.json`;
 
   try {
     const res = await fetch(url);
@@ -16,8 +20,8 @@ export async function GET(
         "Access-Control-Allow-Origin": "*",
       },
     });
-  } catch (err) {
-    return new Response(JSON.stringify({ error: "Proxy fetch failed" }), {
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Failed to fetch data." }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
