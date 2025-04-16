@@ -8,7 +8,7 @@ import "leaflet/dist/leaflet.css";
 // Custom balloon icon
 const balloonIcon = new L.Icon({
   iconUrl: "/balloon.png",
-  iconSize: [32, 32],
+  iconSize: [48, 48],
   iconAnchor: [16, 32],
   popupAnchor: [0, -32],
 });
