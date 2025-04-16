@@ -2,6 +2,9 @@
 
 This interactive web app visualizes WindBorne Systems’ live balloon data on an interactive world map. Users can select any hour from the last 24 to view balloon positions at that time.
 
+![Screenshot](./screenshot.png)
+
+
 ### Tech Stack
 Framework: Next.js (App Router)
 Map Library: React Leaflet + Leaflet
