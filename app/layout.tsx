@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "windborne-simulator",
+  title: "windborne-Tracker",
   description:
     "This interactive web app visualizes WindBorne Systems’ live balloon data on an interactive world map. Users can select any hour from the last 24 to view balloon positions at that time.",
 };
