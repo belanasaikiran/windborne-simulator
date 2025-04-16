@@ -69,24 +69,42 @@ export default function BalloonMap() {
       {/* Dropdown overlay */}
       <div className=" top-0 bg-white text-black p-3 rounded-lg shadow-md">
         <div className="flex justify-between gap-8">
-          <label className="font-bold text-blue-950">windborne-simulator</label>
-          <label className="block text-sm text-gray-700 font-medium">
-            Select Time:{" "}
-            <select
-              value={hour}
-              onChange={(e) => setHour(e.target.value)}
-              className="ml-2 p-1 border rounded"
+          <label className="font-bold text-blue-950">windborne-Tracker</label>
+          <div className="flex gap-8">
+            <label className="block text-sm text-gray-700 font-medium">
+              Select Time:{" "}
+              <select
+                value={hour}
+                onChange={(e) => setHour(e.target.value)}
+                className="ml-2 p-1 border rounded"
+              >
+                {Array.from({ length: 24 }, (_, i) => {
+                  const value = i.toString().padStart(2, "0");
+                  return (
+                    <option key={value} value={value}>
+                      {getHourLabelFromOffset(value)}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+            <a
+              href="https://github.com/belanasaikiran/windborne-tracker"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex pr-2"
             >
-              {Array.from({ length: 24 }, (_, i) => {
-                const value = i.toString().padStart(2, "0");
-                return (
-                  <option key={value} value={value}>
-                    {getHourLabelFromOffset(value)}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
+              Source Code{" "}
+              <span>
+                {" "}
+                <img
+                  src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                  alt="GitHub"
+                  className="mr-2 h-[24px] w-[24px]"
+                />{" "}
+              </span>
+            </a>
+          </div>
         </div>
       </div>
 
